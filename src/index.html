@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8'/>
+        <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+        <link href='css/style.css' rel='stylesheet'/>
+        <title>Rincón Gamer</title>
+    </head>
+
+    <body class='bg-primary text-text' id="index">
+        <div class='container d-flex flex-column min-vh-100'>
+
+            <nav class='navbar navbar-expand-lg fixed-top navbar-dark bg-tertiary text-light navbar-offcanvas'>
+                <button class='navbar-toggler d-block' id='navToggle' type='button'>
+                    <span class='navbar-toggler-icon'></span>
+                </button>
+                <a class='navbar-brand ml-3 mr-5 main-title' href='index.html'>RINCÓN GAMER</a>
+
+                <div class='navbar-collapse offcanvas-collapse nav-back bg-tertiary'>
+                    <ul class='navbar-nav mr-auto'>
+                        <li class='nav-item active'><a class='nav-link' href='#'>Home<span class='sr-only'>(now)</span></a></li>
+                        <li class='nav-item'><a class='nav-link' href='r0889639page2.html'>Genre</a></li>
+                        <li class='nav-item'><a class='nav-link' href='r0889639page1.html'>Recommendation</a></li>
+                        <li class='nav-item'><a class='nav-link' href='r0878947page1.html'>Game Development</a></li>
+                        <li class='nav-item'><a class='nav-link' href='r0878947page2.html'>Evolutions of Games</a></li>
+                    </ul>
+                </div>
+
+                <div class='move-nav mr-auto d-none d-md-block'><p class='move-item m-0' id='ChangeText'></p></div>
+
+                <img alt='' height='45' src='/src/assets/images/logo.png' width='45'>
+            </nav>
+
+            <div id='main-body'>
+                <div class='row justify-content-center'>
+                    <h1 class='text-center row col-md-12 mt-4 font-weight-bold'>
+                        <span class='col-sm-12'>Welcome</span><span class='col-sm-12'>to el Rincón Gamer</span>
+                    </h1>
+
+                    <article class='bg-secondary col-md-12 text-light'>
+                        <h2>So you're new to gaming?</h2>
+                        <p>Welcome to the ultimate guide to gaming! Within these pages you will find marvelous things that are required for
+                            a good gamer to succeed. We have all things gaming, such as info about the games themselves, how they came to be
+                            in this
+                            day and age, amongst a plethora of things. So come, weary traveler and learn about the splendid world of
+                            gaming!</p>
+                    </article>
+
+                    <div class='cards d-md-none'>
+                        <div class='link-card'>
+                            <a href='r0889639page1.html'>
+                                <div class='card card1'>
+                                    <div class='overlay'>
+                                        <div class='card-body'>
+                                            <h3 class='card-title'>Game Recommendations</h3>
+                                            <p class='card-text'>Which games do we recommend?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class='link-card'>
+                            <a href='r0889639page2.html'>
+                                <div class='card card1'>
+                                    <div class='overlay'>
+                                        <div class='card-body'>
+                                            <h3 class='card-title'>Game Genre</h3>
+                                            <p class='card-text'>What kind of games are out there..</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class='link-card'>
+                            <a href='r0878947page1.html'>
+                                <div class='card card1' style='width: 18rem;'>
+                                    <div class='overlay'>
+                                        <div class='card-body'>
+                                            <h3 class='card-title'>Game Developing</h3>
+                                            <p class='card-text'>Do you want to make a game?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class='link-card'>
+                            <a href='r0878947page2.html'>
+                                <div class='card card1' style='width: 18rem;'>
+                                    <div class='overlay'>
+                                        <div class='card-body'>
+                                            <h3 class='card-title'>Evolution of Games</h3>
+                                            <p class='card-text'>A bit of history.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='justify-content-center row mt-5'>
+                    <div class='carousel slide test d-none d-md-block' data-ride='carousel' id='carouselExampleIndicators'>
+                        <ol class='carousel-indicators'>
+                            <li class='active' data-slide-to='0' data-target='#carouselExampleIndicators'></li>
+                            <li data-slide-to='1' data-target='#carouselExampleIndicators'></li>
+                            <li data-slide-to='2' data-target='#carouselExampleIndicators'></li>
+                            <li data-slide-to='3' data-target='#carouselExampleIndicators'></li>
+
+                        </ol>
+                        <div class='carousel-inner'>
+                            <div class='carousel-item active'>
+                                <a class='thing' href='r0889639page1.html'><img alt='Next slide'
+                                                                                class='d-block w-100'
+                                                                                src='src/assets/images/GameRecommendations.jpg'></a>
+                                <div class='carousel-caption text-light'>
+                                    <h3>Game Recommendations</h3>
+                                    <p>Which games should you play?</p>
+                                </div>
+                            </div>
+                            <div class='carousel-item'>
+                                <a class='thing' href='r0889639page2.html'><img alt='Next slide' class='d-block w-100'
+                                                                                src='src/assets/images/GameGenre.jpg'></a>
+                                <div class='carousel-caption text-light'>
+                                    <h3>Game Genre</h3>
+                                    <p>What kind of games are out there.</p>
+                                </div>
+                            </div>
+                            <div class='carousel-item'>
+                                <a class='thing' href='r0878947page1.html'><img alt='Next slide'
+                                                                                class='d-block w-100'
+                                                                                src='src/assets/images/development.jpeg'></a>
+                                <div class='carousel-caption text-light'>
+                                    <h3>Game Development</h3>
+                                    <p>Interested in creating a game?</p>
+                                </div>
+                            </div>
+                            <div class='carousel-item'>
+                                <a class='thing' href='r0878947page2.html'><img alt='Next slide' class='d-block w-100'
+                                                                                src='src/assets/images/game-evo.jpg'></a>
+                                <div class='carousel-caption text-light'>
+                                    <h3>Evolution of Games</h3>
+                                    <p>A bit of history.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a class='carousel-control-prev' data-slide='prev' href='#carouselExampleIndicators' role='button'>
+                            <span aria-hidden='true' class='carousel-control-prev-icon'></span>
+                            <span class='sr-only'>Back</span>
+                        </a>
+                        <a class='carousel-control-next' data-slide='next' href='#carouselExampleIndicators' role='button'>
+                            <span aria-hidden='true' class='carousel-control-next-icon'></span>
+                            <span class='sr-only'>Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-light" id='aboutus'>
+                <div class='mb-5 mt-5 text-center text-text'>
+                    <h2 class='pb-3'>About us!!</h2>
+
+                    <div class='row justify-content-center'>
+                        <div class='col-md-3'>
+                            <img alt='pablo' class='profileimages' src='/src/assets/images/pablofotohome.jpg'>
+                            <h3 class="text-light">Pablo</h3>
+                            <div class='ourphotocards'>
+                            </div>
+                        </div>
+                        <div class='col-md-3'>
+                            <img alt='álvaro' class='profileimages' src='/src/assets/images/alvarofotohome.jpg'>
+                            <h3 class="text-light">Álvaro</h3>
+                            <div class='ourphotocards'>
+                            </div>
+                        </div>
+                    </div>
+                    <article><p>Álvaro and Pablo are ACS Webdesign Advanced students that decided to make a website on
+                        gaming, as it is something we are very interested in. They will try to entertain you in their page
+                        as much as they can. Thanks for coming!</p></article>
+                </div>
+            </div>
+        </div>
+
+        <footer class='mt-auto text-light bg-tertiary text-center py-1'>
+            <p class='m-0 py-1 pl-1'>
+                Copyright <i class='fas fa-copyright'></i> 2022 <a class="text-light" href="https://www.thomasmore.be">Thomas More</a>. All
+                Rights Reserved.
+            </p>
+
+        </footer>
+        <script src='js/jquery.min.js'></script>
+        <script src='js/bootstrap.bundle.min.js'></script>
+        <script src='js/everyone.js'></script>
+    </body>
+</html>
+
+

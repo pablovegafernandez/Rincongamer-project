@@ -1,0 +1,365 @@
+//Alvaro Rosales does:
+@use 'sass:color';
+
+$overlayColor: #7a85b3;
+
+.student2 {
+  h1 {
+    background-image: url(../assets/images/game-evo.jpg);
+  }
+
+  #topparagraph:after {
+    content: '';
+    display: block;
+    margin: auto;
+    width: 50%;
+    padding-top: 20px;
+    border-bottom: 1px solid $text;
+  }
+
+  div h3 {
+    text-align: center;
+  }
+
+  .gameTimeline {
+    border-left: 4px solid $secondary;
+    margin: 50px auto;
+    list-style: none;
+    max-width: 60%;
+
+
+    .event {
+      border-bottom: 3px dashed $secondary;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      position: relative;
+      transform-origin: left;
+
+
+      h3 {
+        margin: 0;
+      }
+
+      &:first-of-type {
+        padding-top: 0;
+        margin-top: 0;
+      }
+
+      &:last-of-type {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border: none;
+      }
+
+      &:before, &:after {
+        position: absolute;
+        display: block;
+      }
+
+      &:before {
+        left: -70px;
+        content: attr(data-year);
+        text-align: right;
+        top: calc(50% - 16px);
+        font-size: 1.4rem;
+        vertical-align: middle;
+        display: inline-block;
+        color: $secondary;
+      }
+
+      &:after {
+        left: -7px;
+        background-color: $secondary;
+        border-radius: 100%;
+        height: 10px;
+        width: 10px;
+        content: '';
+        top: calc(50% - 5px);
+      }
+    }
+  }
+
+  section {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    scroll-snap-align: start;
+    scroll-margin-top: 63px;
+
+    h1 {
+      background-image: unset;
+      background-color: inherit;
+    }
+
+    article {
+      z-index: 2;
+      width: 100vw;
+    }
+
+    &:nth-child(even) {
+      background-color: $secondary;
+
+      &:before {
+        z-index: 1;
+        position: absolute;
+        top: 30%;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        content: '';
+        background-color: inherit;
+        transform-origin: top left;
+        transform: skewY(3deg);
+      }
+    }
+
+    &:nth-child(odd) {
+      background-color: $primary;
+      color: color.adjust($secondary, $lightness: 20%);
+
+      &:not(:last-child) {
+        &:before {
+          z-index: 2;
+          position: absolute;
+          top: 30%;
+          bottom: 0;
+          right: 0;
+          left: 0;
+          content: '';
+          background-color: inherit;
+          transform-origin: top right;
+          transform: skewY(-3deg);
+        }
+      }
+    }
+
+    &:nth-child(1) {
+      color: $text;
+      min-height: 100vh;
+    }
+  }
+
+  .revealed {
+    position: relative;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 1s ease;
+
+    &.true {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+
+  figure {
+
+    img {
+      width: inherit;
+
+      animation-name: scaled;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+    }
+  }
+
+  #conceptphoto1 {
+    z-index: 3;
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    width: 70px;
+    @include media-breakpoint-up(md) {
+      top: 10%;
+      right: 20%;
+      width: 150px;
+    }
+    @include media-breakpoint-up(lg) {
+      top: 15%;
+      right: 15%;
+      width: 32%;
+    }
+  }
+
+  #conceptphoto2 {
+    z-index: 3;
+    position: absolute;
+    top: 5%;
+    right: 25%;
+    width: 80px;
+    @include media-breakpoint-up(md) {
+      top: 10%;
+      right: 35%;
+      width: 150px;
+    }
+    @include media-breakpoint-up(lg) {
+      top: 10%;
+      left: 22%;
+      width: 32%;
+    }
+  }
+
+  #conceptphoto3 {
+    z-index: 4;
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    width: 70px;
+    @include media-breakpoint-up(md) {
+      bottom: 5%;
+      right: 20%;
+      width: 150px;
+    }
+    @include media-breakpoint-up(lg) {
+      bottom: 12%;
+      right: 18%;
+      width: 32%;
+    }
+  }
+
+  #conceptphoto4 {
+    z-index: 3;
+    position: absolute;
+    bottom: 0%;
+    left: 4%;
+    width: 170px;
+    @include media-breakpoint-up(md) {
+      bottom: 7%;
+      left: 30%;
+      width: 250px;
+    }
+    @include media-breakpoint-up(lg) {
+      bottom: 2%;
+      left: 30%;
+      width: 40%;
+    }
+  }
+
+
+  .col-md-2 {
+    margin: 5px 10px;
+    z-index: 4;
+    min-height: 100px;
+
+    @include media-breakpoint-up(md) {
+      min-height: 400px;
+    }
+    background-color: $primary;
+
+    &.primary {
+      background-color: $primary;
+      border: $primary solid 10px;
+    }
+  }
+
+  .photocards {
+    z-index: -1;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: $overlayColor;
+    background-size: cover;
+    background-blend-mode: multiply;
+
+    &#photocard5 {
+      background-image: url(../assets/images/game_engine.jpg);
+    }
+
+    &#photocard6 {
+      background-image: url(../assets/images/lowerlevel_programming.jpg);
+    }
+
+    &#photocard7 {
+      background-image: url(../assets/images/networking.jpg);
+    }
+
+    &#photocard1 {
+      background-image: url(../assets/images/modeling.jpg);
+    }
+
+    &#photocard2 {
+      background-image: url(../assets/images/shading.jpg);
+    }
+
+    &#photocard3 {
+      background-image: url(../assets/images/rigging.jpg);
+      background-position: center;
+    }
+
+    &#photocard4 {
+      background-image: url(../assets/images/animating.jpg);
+      background-position: center;
+    }
+
+
+  }
+
+  .blur {
+    filter: blur(2px) brightness(80%);
+  }
+
+  #conceptart {
+    max-width: 350px;
+  }
+
+  .mainArticle {
+    margin-left: 0;
+    width: 100%;
+    padding-bottom: 1rem;
+  }
+
+  #nextEvent {
+    border-radius: 50%;
+    box-shadow: $secondary 0 0 50px;
+
+    animation-name: scaled;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes scaled {
+    0% {
+      transform: scale(1)
+    }
+
+    50% {
+      transform: scale(1.1)
+    }
+
+    100% {
+      transform: scale(1)
+    }
+  }
+
+  #allEvents {
+    width: 128px;
+    height: 128px;
+    border: solid 2px $text;
+    background-color: $secondary;
+    border-radius: 50%;
+    box-shadow: $secondary 0 0 50px;
+
+    animation-name: scaled;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+
+  .scale {
+    transform: scale(1.1);
+    box-shadow: $secondary 0 0 0.5em;
+  }
+
+}
+
+html, body {
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+}
+
+
+
+

@@ -1,0 +1,226 @@
+// essential layout of all pages
+@use "sass:color";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  //overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+
+p {
+  font-size: $p-size;
+}
+
+body {
+  font-family: $font-secondary;
+  padding-top: 56px;
+}
+
+h1 {
+  font-family: $font-title;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-top: 0;
+  background-color: rgba(23, 23, 23, 0.4);
+  background-image: url(../assets/images/indexbanner.png);
+  background-size: cover;
+  text-shadow: 0 0 0.4em black;
+}
+
+h2 {
+  font-family: $font-secondary;
+  font-weight: bold;
+}
+
+article {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-top: 1.5rem;
+  width: 18rem;
+}
+
+#img-main {
+  width: 100%;
+  max-width: 6%;
+  max-height: 6%;
+}
+
+a {
+  color: $text;
+  font-weight: bold;
+}
+
+a:hover {
+  color: $light;
+  text-decoration: none;
+}
+
+nav {
+  .offcanvas-collapse {
+    position: fixed;
+    top: 56px;
+    bottom: 0;
+    right: 100%;
+    left: -300px;
+    width: 300px;
+    margin-top: 6px;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    overflow-y: auto;
+    visibility: hidden;
+    background-color: #343a40;
+    transition-timing-function: ease-in-out;
+    transition-duration: .3s;
+    transition-property: left, visibility;
+    align-items: start;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding;
+    background-clip: padding-box;
+  }
+
+  .offcanvas-collapse.open {
+    left: 0;
+    visibility: visible;
+  }
+
+  .navbar-expand-lg .navbar-nav {
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .navbar-expand-lg .navbar-nav {
+    flex-direction: column;
+  }
+  .fair-use {
+    footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+}
+
+.card {
+  margin: 2rem auto;
+  float: none;
+  border: 10px solid color.adjust($primary, $lightness: 30%);
+  background-size: cover;
+
+  .card-title {
+    font-family: $font-secondary;
+    font-weight: bold;
+  }
+
+  .overlay {
+    background-color: rgba(23, 23, 23, 0.7);
+  }
+}
+
+
+.link-card {
+  a {
+    color: $text;
+  }
+
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  width: 18rem;
+}
+
+.move-nav {
+  overflow: hidden;
+  width: 90vw;
+}
+
+.move-item {
+  animation: movingTip 20s linear infinite;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+@keyframes movingTip {
+  from {
+    transform: translateX(160vh);
+  }
+  to {
+    transform: translateX(-90vh);
+  }
+}
+
+.main-title {
+  font-size: 1.5rem;
+}
+
+.carousel-item {
+  background-size: cover;
+}
+
+.thing {
+  width: 80%;
+}
+
+.test {
+  width: 70%;
+}
+
+.fair-use {
+  h1 {
+    background-image: none;
+  }
+
+  article {
+    padding: 2rem;
+    margin: 1.5rem 0;
+    width: auto;
+  }
+
+  .name {
+    min-height: 87vh;
+  }
+}
+
+.ourphotocards {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.profileimages {
+  max-width: 150px;
+  height: auto;
+  border: white solid 3px;
+  border-radius: 50%;
+}
+
+#aboutus {
+  article {
+    width: auto;
+  }
+}
+
+#betsyimage {
+  max-width: 350px;
+  width: 100vw;
+}
+
+
+.carousel-inner {
+  img {
+    height: 427px;
+  }
+}
+
+

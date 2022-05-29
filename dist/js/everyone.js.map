@@ -1,0 +1,42 @@
+{
+    "version": 3,
+    "sources": [
+        "everyone.js"
+    ],
+    "names": [
+        "yourFunction",
+        "document",
+        "getElementById",
+        "textContent",
+        "texts",
+        "Math",
+        "round",
+        "random",
+        "length",
+        "randomText",
+        "setTimeout",
+        "$",
+        "ready",
+        "on",
+        "toggleClass",
+        "querySelector",
+        "querySelectorAll",
+        "forEach",
+        "img",
+        "imgToAdd",
+        "imgPath",
+        "replace",
+        "src",
+        "card",
+        "imgChange",
+        "style",
+        "backgroundImage",
+        "console",
+        "log"
+    ],
+    "mappings": "AA2BA,GAdA,SAASA,IACKC,SAASC,eAAe,cAChCC,YAfN,WACI,MAAMC,EAAQ,CACV,+CACA,wFACA,2CACA,+BACA,oCAIJ,OAAOA,EADOC,KAAKC,MAAMD,KAAKE,UAAYH,EAAMI,OAAS,KAMzCC,GAChBC,WAAWV,EAAc,KAG7BA,GAEAW,EAAEV,UAAUW,MAAM,KACdD,EAAE,yCAAyCE,GAAG,QAAS,KACnDF,EAAE,uBAAuBG,YAAY,YAIzCb,SAASc,cAAc,UAAW,CAErBd,SAASe,iBAAiB,kCAClCC,QAASC,IACV,MAAMC,EAAWD,EAAIH,cAAc,OAC7BK,EAAUF,EAAIH,cAAc,MAAMZ,YAAYkB,QAAQ,MAAO,IACnEF,EAASG,IAAM,iBAAiBF,UAGpBnB,SAASe,iBAAiB,qBAClCC,QAASM,IACb,MAAMC,EAAYD,EAAKR,cAAc,SAC/BK,EAAUG,EAAKR,cAAc,eAAeZ,YAAYkB,QAAQ,MAAO,IAC7EG,EAAUC,MAAMC,gBAAkB,wBAAwBN,SAC1DO,QAAQC,IAAI,wBAAwBR",
+    "file": "everyone.js",
+    "sourcesContent": [
+        "function randomText() {\n    const texts = [\n        'Be sure to check your setting for every game',\n        'Before buying a game, make sure your sure your system meets the hardware requirements',\n        'Be careful of in-game micro-transactions',\n        'Check your keybinding layout',\n        'Remember, gaming is to have fun!',\n    ];\n\n    const index = Math.round(Math.random() * (texts.length - 1));\n    return texts[index];\n}\n\nfunction yourFunction() {\n    const p = document.getElementById('ChangeText');\n    p.textContent = randomText();\n    setTimeout(yourFunction, 20000);\n}\n\nyourFunction();\n\n$(document).ready(() => {\n    $('[data-toggle=\"offcanvas\"], #navToggle').on('click', () => {\n        $('.offcanvas-collapse').toggleClass('open');\n    });\n});\n\nif (document.querySelector('#index')) {\n    // change img for carousel\n    const imgC = document.querySelectorAll('.carousel-inner .carousel-item');\n    imgC.forEach((img) => {\n        const imgToAdd = img.querySelector('img');\n        const imgPath = img.querySelector('h3').textContent.replace(/\\s/g, '');\n        imgToAdd.src = `assets/images/${imgPath}.jpg`;\n    });\n\n    const imgCard = document.querySelectorAll('.cards .link-card');\n    imgCard.forEach((card) => {\n        const imgChange = card.querySelector('.card');\n        const imgPath = card.querySelector('.card-title').textContent.replace(/\\s/g, '');\n        imgChange.style.backgroundImage = `url(../assets/images/${imgPath}.jpg)`;\n        console.log(`url(../assets/images/${imgPath}.jpg)`);\n    });\n}\n"
+    ]
+}

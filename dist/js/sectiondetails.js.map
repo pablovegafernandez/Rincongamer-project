@@ -1,0 +1,49 @@
+{
+    "version": 3,
+    "sources": [
+        "student2.js"
+    ],
+    "names": [
+        "$",
+        "document",
+        "ready",
+        "window",
+        "scroll",
+        "each",
+        "windowheight",
+        "innerHeight",
+        "this",
+        "getBoundingClientRect",
+        "top",
+        "classList",
+        "add",
+        "remove",
+        "listItems",
+        "nextEvent",
+        "allEvents",
+        "counter",
+        "push",
+        "click",
+        "length",
+        "removeClass",
+        "append",
+        "last",
+        "addClass",
+        "children",
+        "hide",
+        "forEach",
+        "element",
+        "show",
+        "mousedown",
+        "mouseup",
+        "width",
+        "on",
+        "toggleClass",
+        "siblings"
+    ],
+    "mappings": "AACAA,EAAEC,UAAUC,OAAM,WAEdF,EAAEG,QAAQC,QAAO,WAEbJ,EAAE,aAAaK,MAAK,WAEhB,MAAMC,EAAeH,OAAOI,YACVC,KAAKC,wBAAwBC,IAE/BJ,EACZE,KAAKG,UAAUC,IAAI,QAEnBJ,KAAKG,UAAUE,OAAO,cAKlC,MAAMC,EAAY,GACZC,EAAYf,EAAE,cACdgB,EAAYhB,EAAE,cACpB,IAAIiB,EAAU,EAEdjB,EAAE,YAAYK,MAAK,WACfS,EAAUI,KAAKV,MACfR,EAAEQ,MAAMK,YAIZE,EAAUI,OAAM,WAERF,EAAUH,EAAUM,SACpBpB,EAAE,YAAYqB,YAAY,SAC1BrB,EAAE,mBAAmBsB,OAAOR,EAAUG,IACtCjB,EAAE,YAAYuB,OAAOC,SAAS,SAC9BP,IAEIA,IAAYH,EAAUM,SACtBJ,EAAUS,WAAWJ,YAAY,wBACjCL,EAAUS,WAAWD,SAAS,sBAC9BT,EAAUW,YAKtBV,EAAUG,OAAM,WAERF,EAAUH,EAAUM,QACpBpB,EAAE,YAAYqB,YAAY,SAC1BP,EAAUa,QAAQC,GAAW5B,EAAE,mBAAmBsB,OAAOM,IACzDX,EAAUH,EAAUM,OAEhBH,IAAYH,EAAUM,SACtBpB,EAAEQ,MAAMiB,WAAWJ,YAAY,wBAC/BrB,EAAEQ,MAAMiB,WAAWD,SAAS,sBAC5BT,EAAUW,SAGPT,IAAYH,EAAUM,SAC7BpB,EAAE,YAAYK,MAAK,WACfS,EAAUI,KAAKV,MACfR,EAAEQ,MAAMK,YAGZE,EAAUc,OAEV7B,EAAEQ,MAAMiB,WAAWJ,YAAY,sBAC/BrB,EAAEQ,MAAMiB,WAAWD,SAAS,4BAKpCT,EAAUe,WAAU,WAChB9B,EAAEQ,MAAMa,YAAY,kBACpBrB,EAAEQ,MAAMgB,SAAS,gBAErBR,EAAUc,WAAU,WAChB9B,EAAEQ,MAAMgB,SAAS,cAGrBT,EAAUgB,SAAQ,WACd/B,EAAEQ,MAAMa,YAAY,aACpBrB,EAAEQ,MAAMgB,SAAS,qBAErBR,EAAUe,SAAQ,WACd/B,EAAEQ,MAAMa,YAAY,cAGpBrB,EAAEG,QAAQ6B,QAAU,KACpBhC,EAAE,eAAeqB,YAAY,QAEjCrB,EAAE,eAAeiC,GAAG,yBAAyB,WACzCjC,EAAEQ,MAAM0B,YAAY,WAExBlC,EAAE,eAAemC,SAAS,KAAKF,GAAG,yBAAyB,WACvDjC,EAAEQ,MAAM2B,SAAS,OAAOD,YAAY",
+    "file": "student2.js",
+    "sourcesContent": [
+        "//made by Pablo\n$(document).ready(function() {\n    //add fade in class for sections when scrolled to\n    $(window).scroll(function() {\n        //for each section which will get revealed\n        $('.revealed').each(function() {\n            //get heights\n            const windowheight = window.innerHeight;\n            const revealtop = this.getBoundingClientRect().top;\n            //if in viewframe reveal section\n            if (revealtop < windowheight) {\n                this.classList.add('true');\n            } else {\n                this.classList.remove('true');\n            }\n        });\n    });\n    //declare variables\n    const listItems = [];\n    const nextEvent = $('#nextEvent');\n    const allEvents = $('#allEvents');\n    let counter = 0;\n    //delete timeline events and add each event to an array\n    $('li.event').each(function() {\n        listItems.push(this);\n        $(this).remove();\n    });\n\n    //add events to the timeline 1 by 1\n    nextEvent.click(function() {\n        //append the events on the timeline from the list one by one\n        if (counter < listItems.length) {\n            $('li.scale').removeClass('scale');\n            $('ul.gameTimeline').append(listItems[counter]);\n            $('li.event').last().addClass('scale');\n            counter++;\n            //if list is finished change the arrow directions and hide left button\n            if (counter === listItems.length) {\n                allEvents.children().removeClass('fa-angle-double-down');\n                allEvents.children().addClass('fa-angle-double-up');\n                nextEvent.hide();\n            }\n        }\n    });\n    //add events to the timeline 1 by 1\n    allEvents.click(function() {\n        //append the events on the timeline from the list\n        if (counter < listItems.length) {\n            $('li.scale').removeClass('scale');\n            listItems.forEach(element => $('ul.gameTimeline').append(element));\n            counter = listItems.length;\n            //if list is finished change the arrow directions and hide left button\n            if (counter === listItems.length) {\n                $(this).children().removeClass('fa-angle-double-down');\n                $(this).children().addClass('fa-angle-double-up');\n                nextEvent.hide();\n            }\n            //if the timeline is full, onclick: remove all events from html\n        } else if (counter === listItems.length) {\n            $('li.event').each(function() {\n                listItems.push(this);\n                $(this).remove();\n            });\n            //add left button back in\n            nextEvent.show();\n            //change arrow directions once events are deleted from html\n            $(this).children().removeClass('fa-angle-double-up');\n            $(this).children().addClass('fa-angle-double-down');\n        }\n    });\n\n    //change color of icons when clicking\n    nextEvent.mousedown(function() {\n        $(this).removeClass('text-secondary');\n        $(this).addClass('text-text');\n    });\n    allEvents.mousedown(function() {\n        $(this).addClass('bg-text');\n    });\n    //revert color of icons after clicking\n    nextEvent.mouseup(function() {\n        $(this).removeClass('text-text');\n        $(this).addClass('text-secondary');\n    });\n    allEvents.mouseup(function() {\n        $(this).removeClass('bg-text');\n    });\n    //blur cards when hovering above\n    if ($(window).width() > 991) {\n        $('.photocards').removeClass('blur');\n    }\n    $('.photocards').on('mouseenter mouseleave', function() {\n        $(this).toggleClass('blur');\n    });\n    $('.photocards').siblings('p').on('mouseenter mouseleave', function() {\n        $(this).siblings('div').toggleClass('blur');\n    });\n});\n"
+    ]
+}
